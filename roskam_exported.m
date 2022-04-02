@@ -246,7 +246,7 @@ classdef roskam_exported < matlab.apps.AppBase
             m_ff = str2double(app.m_ff.Value);
             W_to = str2double(app.W_to.Value);
             if ~anynan([W_to])
-                app.WEtarget.Value = num2str(polyval(app.table29regression, W_to));
+                app.WEtarget.Value = num2str(10^(polyval(app.table29regression, log10(W_to))));
             end
             if ~anynan([m_ff W_to])
                 app.Wf_used.Value = num2str((1-m_ff)*W_to);
@@ -289,7 +289,7 @@ classdef roskam_exported < matlab.apps.AppBase
             xlim(limits);
             hold on
             x = linspace(10^4, 10^6, 1000);
-            loglog(x, polyval(app.table29regression, x));
+            loglog(x, 10.^(polyval(app.table29regression, log10(x))));
             text(app.table29(1,:), app.table29(2,:), num2str(transpose(1:21)), 'Color', [0.8 0.8 0.8]);
             hold off
         end
@@ -305,7 +305,7 @@ classdef roskam_exported < matlab.apps.AppBase
         % Code that executes after component creation
         function startupFcn(app)
             app.tipoValueChanged(1);
-            app.table29regression = polyfit(app.table29(1,:), app.table29(2,:), 1);
+            app.table29regression = polyfit(log10(app.table29(1,:)), log10(app.table29(2,:)),1);
         end
 
         % Value changed function: tipo
