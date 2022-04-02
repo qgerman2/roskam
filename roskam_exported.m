@@ -69,6 +69,7 @@ classdef roskam_exported < matlab.apps.AppBase
         W1TO                         matlab.ui.control.EditField
         W_1Label                     matlab.ui.control.Label
         emptyweight                  matlab.ui.container.Tab
+        eqerror                      matlab.ui.control.Label
         WEtarget                     matlab.ui.control.EditField
         W5Label_13                   matlab.ui.control.Label
         WError                       matlab.ui.control.EditField
@@ -1057,6 +1058,12 @@ classdef roskam_exported < matlab.apps.AppBase
             app.WEtarget.Editable = 'off';
             app.WEtarget.Tooltip = {''};
             app.WEtarget.Position = [183 225 63 31];
+
+            % Create eqerror
+            app.eqerror = uilabel(app.emptyweight);
+            app.eqerror.Interpreter = 'latex';
+            app.eqerror.Position = [249 2 139 36];
+            app.eqerror.Text = '$=\frac{|W_E-W_{E,target}|}{W_{E,target}}\cdot 100$';
 
             % Create save
             app.save = uibutton(app.UIFigure, 'push');
