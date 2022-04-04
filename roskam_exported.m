@@ -247,6 +247,7 @@ classdef roskam_exported < matlab.apps.AppBase
             W_to = str2double(app.W_to.Value);
             if ~anynan([W_to])
                 app.WEtarget.Value = num2str(10^(polyval(app.table29regression, log10(W_to))));
+                app.Wtfo.Value = num2str(0.005 * W_to);
             end
             if ~anynan([m_ff W_to])
                 app.Wf_used.Value = num2str((1-m_ff)*W_to);
@@ -257,9 +258,6 @@ classdef roskam_exported < matlab.apps.AppBase
                 app.Wf.Value = num2str(Wf_used + Wf_res);
             end
             Wf = str2double(app.Wf.Value);
-            if ~anynan([Wf])
-                app.Wtfo.Value = num2str(0.05 * Wf);
-            end
             Wtfo = str2double(app.Wtfo.Value);
             Wpl = str2double(app.Wpl.Value);
             Wcrew = str2double(app.Wcrew.Value);
