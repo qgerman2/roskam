@@ -250,17 +250,22 @@ classdef roskam_exported < matlab.apps.AppBase
             W_to = str2double(app.W_to.Value);
             if ~anynan([W_to])
                 app.WEtarget.Value = num2str(10^(polyval(app.table29regression, log10(W_to))));
-                app.Wtfo.Value = num2str(0.005 * W_to);
             end
             if ~anynan([m_ff W_to])
                 app.Wf_used.Value = num2str((1-m_ff)*W_to);
             end
             Wf_used = str2double(app.Wf_used.Value);
+            if ~anynan([Wf_used])
+                app.Wf_res.Value = num2str(0.1 * Wf_used);
+            end
             Wf_res = str2double(app.Wf_res.Value);
             if ~anynan([Wf_used Wf_res])
                 app.Wf.Value = num2str(Wf_used + Wf_res);
             end
             Wf = str2double(app.Wf.Value);
+            if ~anynan([Wf])
+                app.Wtfo.Value = num2str(0.005 * Wf);
+            end
             Wtfo = str2double(app.Wtfo.Value);
             Wpl = str2double(app.Wpl.Value);
             Wcrew = str2double(app.Wcrew.Value);
@@ -1006,6 +1011,7 @@ classdef roskam_exported < matlab.apps.AppBase
             % Create Wf_res
             app.Wf_res = uieditfield(app.emptyweight, 'text');
             app.Wf_res.ValueChangedFcn = createCallbackFcn(app, @Wf_resValueChanged, true);
+            app.Wf_res.Editable = 'off';
             app.Wf_res.Position = [306 191 63 31];
 
             % Create W5Label_7
