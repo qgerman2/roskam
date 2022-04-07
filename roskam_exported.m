@@ -18,6 +18,7 @@ classdef roskam_exported < matlab.apps.AppBase
         W8Label_2                    matlab.ui.control.Label
         TabGroup2                    matlab.ui.container.TabGroup
         AscensoTab                   matlab.ui.container.Tab
+        Tabla22Button1               matlab.ui.control.Button
         n_p_cl                       matlab.ui.control.EditField
         W4Label_7                    matlab.ui.control.Label
         c_cl                         matlab.ui.control.EditField
@@ -29,6 +30,7 @@ classdef roskam_exported < matlab.apps.AppBase
         E_cl                         matlab.ui.control.EditField
         W4Label_2                    matlab.ui.control.Label
         CruceroTab                   matlab.ui.container.Tab
+        Tabla22Button2               matlab.ui.control.Button
         V_cr                         matlab.ui.control.EditField
         W4Label_12                   matlab.ui.control.Label
         LD_cr                        matlab.ui.control.EditField
@@ -40,6 +42,7 @@ classdef roskam_exported < matlab.apps.AppBase
         R_cr                         matlab.ui.control.EditField
         W4Label_8                    matlab.ui.control.Label
         LoiterTab                    matlab.ui.container.Tab
+        Tabla22Button3               matlab.ui.control.Button
         E_lo                         matlab.ui.control.EditField
         W4Label_17                   matlab.ui.control.Label
         V_lo                         matlab.ui.control.EditField
@@ -294,6 +297,19 @@ classdef roskam_exported < matlab.apps.AppBase
         %function save(app, filename)
         %    
         %end
+        
+        function Tabla22Figure(app)
+            f = figure(3);
+            f.MenuBar = 'none';
+            f.Name = 'Tabla 2.2';
+            imshow('tabla22.png');
+            set(gca,'units','pixels');
+            x = get(gca,'position');
+            set(gcf,'units','pixels');
+            y = get(gcf,'position');
+            set(gcf,'position',[y(1) y(2) x(3) x(4)]);
+            set(gca,'units','normalized','position',[0 0 1 1]);
+        end
     end
     
 
@@ -545,6 +561,21 @@ classdef roskam_exported < matlab.apps.AppBase
             app.refreshWeightPlot();
             app.updateCalculation();
         end
+
+        % Button pushed function: Tabla22Button1
+        function Tabla22Button1Pushed(app, event)
+            app.Tabla22Figure();
+        end
+
+        % Button pushed function: Tabla22Button2
+        function Tabla22Button2Pushed(app, event)
+            app.Tabla22Figure();
+        end
+
+        % Button pushed function: Tabla22Button3
+        function Tabla22Button3Pushed(app, event)
+            app.Tabla22Figure();
+        end
     end
 
     % Component initialization
@@ -769,6 +800,12 @@ classdef roskam_exported < matlab.apps.AppBase
             app.n_p_cl.ValueChangedFcn = createCallbackFcn(app, @n_p_clValueChanged, true);
             app.n_p_cl.Position = [176 42 63 31];
 
+            % Create Tabla22Button1
+            app.Tabla22Button1 = uibutton(app.AscensoTab, 'push');
+            app.Tabla22Button1.ButtonPushedFcn = createCallbackFcn(app, @Tabla22Button1Pushed, true);
+            app.Tabla22Button1.Position = [275 80 100 22];
+            app.Tabla22Button1.Text = 'Tabla 2.2';
+
             % Create CruceroTab
             app.CruceroTab = uitab(app.TabGroup2);
             app.CruceroTab.Title = 'Crucero';
@@ -835,6 +872,12 @@ classdef roskam_exported < matlab.apps.AppBase
             app.V_cr.Tooltip = {''};
             app.V_cr.Position = [50 42 63 31];
 
+            % Create Tabla22Button2
+            app.Tabla22Button2 = uibutton(app.CruceroTab, 'push');
+            app.Tabla22Button2.ButtonPushedFcn = createCallbackFcn(app, @Tabla22Button2Pushed, true);
+            app.Tabla22Button2.Position = [275 80 100 22];
+            app.Tabla22Button2.Text = 'Tabla 2.2';
+
             % Create LoiterTab
             app.LoiterTab = uitab(app.TabGroup2);
             app.LoiterTab.Title = 'Loiter';
@@ -900,6 +943,12 @@ classdef roskam_exported < matlab.apps.AppBase
             app.E_lo.ValueChangedFcn = createCallbackFcn(app, @E_loValueChanged, true);
             app.E_lo.Tooltip = {'hr'};
             app.E_lo.Position = [50 76 63 31];
+
+            % Create Tabla22Button3
+            app.Tabla22Button3 = uibutton(app.LoiterTab, 'push');
+            app.Tabla22Button3.ButtonPushedFcn = createCallbackFcn(app, @Tabla22Button3Pushed, true);
+            app.Tabla22Button3.Position = [275 80 100 22];
+            app.Tabla22Button3.Text = 'Tabla 2.2';
 
             % Create W8Label_2
             app.W8Label_2 = uilabel(app.fc);
