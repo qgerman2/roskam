@@ -45,7 +45,10 @@ function loadFile(app, filename)
     app.Wpl.Value = input(25);
     app.Wcrew.Value = input(26);
 
-    app.StallReqs.Data = eval(input(27));
+    app.stalltable.Data = eval(input(27));
+    app.stalltableSelectionChanged(1);
+    app.totable.Data = eval(input(28));
+    app.totableSelectionChanged(1);
 
     app.updateCalculation();
 end

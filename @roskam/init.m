@@ -1,14 +1,20 @@
 function init(app)
-    app.StallReqs.Data = [
-        [0.0024, 0, 0, 0];
-        [0.0024, 0, 0, 0];
-        [0.0024, 0, 0, 0]
+    [~,~,~,app.rho0] = atmosisa(0);
+    %Tablas
+    app.stalltable.Data = [
+        [0, 0, 1.1, 0, 1];
     ];
+    app.totable.Data = [
+        [0, 0, 1.1, 1];
+    ];
+    app.totable.Selection = 1;
+    %Cargar ultimo archivo
     fid = fopen('latest.txt','rt');
     if fid ~= -1
         filename = fgetl(fid);
         app.loadFile(filename);
     end
     fclose("all");
+    %Calculos
     app.updateCalculation();
 end

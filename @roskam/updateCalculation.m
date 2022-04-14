@@ -4,4 +4,5 @@ function updateCalculation(app)
     app.updateFuelFraction();
     app.updateWeights();
     app.updateStallSizing();
+    app.updateTakeoffSizing();
 end

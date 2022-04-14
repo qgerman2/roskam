@@ -5,6 +5,7 @@ function input = getCalculationInput(app)
         app.E_cl.Value; app.V_cl.Value; app.c_cl.Value; app.n_p_cl.Value; app.LD_cl.Value;
         app.V_cr.Value; app.R_cr.Value; app.c_cr.Value; app.n_p_cr.Value; app.LD_cr.Value;
         app.E_lo.Value; app.V_lo.Value; app.c_lo.Value; app.n_p_lo.Value; app.LD_lo.Value;
-        app.Wf_res.Value; app.W98.Value; app.Wpl.Value; app.Wcrew.Value; mat2str(app.StallReqs.Data)
+        app.Wf_res.Value; app.W98.Value; app.Wpl.Value; app.Wcrew.Value; mat2str(app.stalltable.Data);
+        mat2str(app.totable.Data)
     };
 end
