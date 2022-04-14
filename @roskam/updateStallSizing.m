@@ -10,7 +10,9 @@ function updateStallSizing(app)
         app.stallrho.Value = num2str(rho / 515); %kg/m3 a slug/ft3
     end
     for i=1:height(app.stalltable.Data)
-        r = str2double(app.stallrho.Value);
+        h = app.stalltable.Data(i,2);
+        [~,~,~,r] = atmosisa(h / 3.281); %m a ft
+        r = r / 515;
         Vs = app.stalltable.Data(i,1) * 1.68781; % ktas a ft/s
         CL = app.stalltable.Data(i,3);
         if ~anynan([r Vs CL])
