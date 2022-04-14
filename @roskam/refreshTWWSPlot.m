@@ -21,9 +21,11 @@ function refreshTWWSPlot(app)
         for i=1:height(app.totable.Data)
             if app.totable.Data(i,4) == 1
                 cl = app.totable.Data(i,3);
-                sigma = str2double(app.tosigma.Value);
+                h = app.totable.Data(i,2);
                 Stofl = app.totable.Data(i,1);
-                if ~anynan([cl sigma Stofl])
+                if ~anynan([cl h Stofl])
+                    [~,~,~,rho] = atmosisa(h / 3.281);
+                    sigma = rho/app.rho0;
                     y = 75*(0:10:400)/(2*cl*sigma*Stofl);
                     name = ...
                         "$S_{TOFL}$ " + app.totable.Data(i,1) + " [ft] - " + ...
