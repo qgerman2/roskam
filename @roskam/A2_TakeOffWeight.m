@@ -39,6 +39,7 @@ function A2_TakeOffWeight(app)
         err = (abs(WEtarget - WE) / WEtarget) * 100;
         app.WError.Value = [num2str(err, 4) '%'];
     end
+    app.B41_DragPolar();
     if ishandle(2)
         app.A_WeightPlot();
     end

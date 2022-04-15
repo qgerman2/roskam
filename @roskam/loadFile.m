@@ -52,5 +52,11 @@ function loadFile(app, filename)
     app.lantable.Data = eval(input(29));
     app.lantableSelectionChanged(1);
 
+    app.dragcf.Value = input(30);
+    app.drags.Value = input(31);
+    app.draga.Value = input(32);
+    app.drage.Value = input(33);
+    app.dragtable.Data = eval(input(34));
+
     app.updateUIPlaneType();
 end

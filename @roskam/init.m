@@ -13,6 +13,11 @@ function init(app)
     app.stalltable.Selection = 1;
     app.totable.Selection = 1;
     app.lantable.Selection = 1;
+    app.dragtable.Data = [
+       [0, 0];
+       [0, 0];
+       [0, nan]
+    ]
     %Cargar ultimo archivo
     fid = fopen('latest.txt','rt');
     if fid ~= -1

@@ -7,6 +7,7 @@ function saveFile(app, new)
         app.E_lo.Value; app.V_lo.Value; app.c_lo.Value; app.n_p_lo.Value; app.LD_lo.Value;
         app.Wf_res.Value; app.W98.Value; app.Wpl.Value; app.Wcrew.Value; mat2str(app.stalltable.Data);
         mat2str(app.totable.Data); mat2str(app.lantable.Data);
+        app.dragcf.Value; app.drags.Value; app.draga.Value; app.drage.Value; mat2str(app.dragtable.Data);
     };
     if new || app.file == ""
         [file, path] = uiputfile({'*.txt'});
