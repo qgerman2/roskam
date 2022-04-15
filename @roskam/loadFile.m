@@ -59,4 +59,5 @@ function loadFile(app, filename)
     app.dragtable.Data = eval(input(34));
 
     app.updateUIPlaneType();
+    app.A1_FuelFraction();
 end

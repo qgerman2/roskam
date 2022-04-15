@@ -25,6 +25,4 @@ function init(app)
         app.loadFile(filename);
     end
     fclose("all");
-    app.updateUIPlaneType();
-    app.A1_FuelFraction();
 end
