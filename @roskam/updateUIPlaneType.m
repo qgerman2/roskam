@@ -1,4 +1,4 @@
-function updateUI(app)
+function updateUIPlaneType(app)
     switch str2double(app.tipo.Value)
         case {1, 2, 3, 4, 6, 10, 11, 12}
             app.prop = true;

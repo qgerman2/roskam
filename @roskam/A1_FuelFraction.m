@@ -1,4 +1,9 @@
-function updateFuelFraction(app)
+function A1_FuelFraction(app)
+    %% Borrar resultados parciales
+    app.W43.Value = "";
+    app.W54.Value = "";
+    app.W65.Value = "";
+    app.m_ff.Value = "";
     %% Tabla 21
     app.W1TO.Value = num2str(app.table21(str2double(app.tipo.Value), 1));
     app.W21.Value = num2str(app.table21(str2double(app.tipo.Value), 2));
@@ -51,4 +56,5 @@ function updateFuelFraction(app)
     if ~anynan([W1TO W21 W32 W65 W76 W87 W98]) 
         app.m_ff.Value = num2str(W1TO * W21 * W32 * W43 * W54 * W65 * W76 * W87 * W98);
     end
+    app.A2_TakeOffWeight();
 end

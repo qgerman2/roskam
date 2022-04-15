@@ -7,7 +7,12 @@ function init(app)
     app.totable.Data = [
         [0, 0, 1.1, 1];
     ];
+    app.lantable.Data = [
+        [0, 0, 1.1, 0.85, 1];
+    ];
+    app.stalltable.Selection = 1;
     app.totable.Selection = 1;
+    app.lantable.Selection = 1;
     %Cargar ultimo archivo
     fid = fopen('latest.txt','rt');
     if fid ~= -1
@@ -15,6 +20,6 @@ function init(app)
         app.loadFile(filename);
     end
     fclose("all");
-    %Calculos
-    app.updateCalculation();
+    app.updateUIPlaneType();
+    app.A1_FuelFraction();
 end

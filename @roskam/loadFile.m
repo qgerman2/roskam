@@ -49,6 +49,8 @@ function loadFile(app, filename)
     app.stalltableSelectionChanged(1);
     app.totable.Data = eval(input(28));
     app.totableSelectionChanged(1);
+    app.lantable.Data = eval(input(29));
+    app.lantableSelectionChanged(1);
 
-    app.updateCalculation();
+    app.updateUIPlaneType();
 end
