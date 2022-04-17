@@ -17,7 +17,16 @@ function init(app)
        [0, 0];
        [0, 0];
        [0, nan]
-    ]
+    ];
+    app.climbtable.Data = [
+        [nan, nan, nan, nan, 1];
+        [nan, nan, nan, nan, 1];
+        [nan, nan, nan, nan, 1];
+        [nan, nan, nan, nan, 1];
+        [nan, nan, nan, nan, 1];
+        [nan, nan, nan, nan, 1];
+    ];
+    app.updateUIPlaneType();
     %Cargar ultimo archivo
     fid = fopen('latest.txt','rt');
     if fid ~= -1

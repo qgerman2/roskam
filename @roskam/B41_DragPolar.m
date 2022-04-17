@@ -1,11 +1,31 @@
 function B41_DragPolar(app)
+    %% Borrar resultados
+    app.dragv11.Value = "";
+    app.dragv12.Value = "";
+    app.dragv21.Value = "";
+    app.dragv22.Value = "";
+    app.dragv31.Value = "";
+    app.dragv32.Value = "";
+    app.dragv41.Value = "";
+    app.dragv42.Value = "";
+    app.dragv51.Value = "";
+    app.dragv52.Value = "";
+    app.dragswet.Placeholder = "";
+    app.dragf.Value = "";
+    app.dragcd0.Value = "";
+    app.dragws.Value = "";
+    %% Calcular
     Wto = str2double(app.W_to.Value);
     Swet = nan;
     if ~anynan(Wto)
         c = 0.0199;
         d = 0.7531;
-        Swet = exp(log(Wto)*d+log(10)*c);
-        app.dragswet.Value = num2str(Swet);
+        if anynan(str2double(app.dragswet.Value))
+            Swet = exp(log(Wto)*d+log(10)*c);
+            app.dragswet.Placeholder = num2str(Swet);
+        else
+            Swet = str2double(app.dragswet.Value);
+        end
     end
     f = nan;
     if ~anynan(Swet)
@@ -31,6 +51,9 @@ function B41_DragPolar(app)
         app.dragv41.Value = num2str(cd0 + lanFlapsDelta);
         app.dragv51.Value = num2str(cd0 + lanFlapsDelta + lanGearDelta);
     end
+    if ~anynan([S Wto])
+        app.dragws.Value = num2str(Wto/S);
+    end
     A = str2double(app.draga.Value);
     e = str2double(app.drage.Value);
     if ~anynan([A e])
@@ -47,4 +70,5 @@ function B41_DragPolar(app)
         app.dragv42.Value = num2str(1/(pi*A*lane));
         app.dragv52.Value = num2str(1/(pi*A*lane));
     end
+    app.B42_Climb();
 end

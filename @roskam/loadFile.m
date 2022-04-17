@@ -58,6 +58,15 @@ function loadFile(app, filename)
     app.drage.Value = input(33);
     app.dragtable.Data = eval(input(34));
 
+    app.climbinput = eval(input(35));
+    len = size(app.climbinput,1);
+    app.climbselect.Items = string(1:len);
+    for i=1:len
+        app.climboutput(:,:,i) = [zeros(6, 4) * nan, [1;1;1;1;1;1]];
+    end
+
+    app.dragswet.Value = input(36);
+
     app.updateUIPlaneType();
     app.A1_FuelFraction();
 end

@@ -54,21 +54,12 @@ function B_TWWSPlot(app)
     end
     if (app.climbplotenable.Value)
         for i=1:size(app.climboutput,3)
-            if app.climbinput(i,7)
-                label = [
-                    i + ". OEI CGR$>$0.012";
-                    i + ". OEI CGR$>$0";
-                    i + ". OEI CGR$>$0.024";
-                    i + ". OEI CGR$>$0.012";
-                    i + ". AEO CGR$>$0.032";
-                    i + ". OEI CGR$>$0.021";
-                ];
-                for j=1:6
-                    if app.climboutput(j,5,i) == 1
-                        tw = app.climboutput(j,4,i);
-                        if ~anynan(tw)
-                            plot([0, 200], [tw tw], "DisplayName", label(j));
-                        end
+            if
+            for j=1:6
+                if app.climboutput(j,5,i) == 1
+                    tw = app.climboutput(j,4,i);
+                    if ~anynan(tw)
+                        plot([0, 200], [tw tw]);
                     end
                 end
             end
