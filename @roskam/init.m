@@ -10,9 +10,14 @@ function init(app)
     app.lantable.Data = [
         [0, 0, 1.1, 0.85, 1];
     ];
+    app.cruisetable.Data = [
+        [0, 0, 0, 0, 0, 1];
+    ];
     app.stalltable.Selection = 1;
     app.totable.Selection = 1;
     app.lantable.Selection = 1;
+    app.cruisetable.Selection = 1;
+    app.cruisetableSelectionChanged(1);
     app.dragtable.Data = [
        [0, 0];
        [0, 0];

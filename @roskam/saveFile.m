@@ -10,17 +10,21 @@ function saveFile(app, new)
         app.dragcf.Value; app.drags.Value; app.draga.Value; app.drage.Value; mat2str(app.dragtable.Data);
         mat2str(app.climbinput);
         app.dragswet.Value;
+        mat2str(app.cruisetable.Data);
     };
     if new || app.file == ""
         [file, path] = uiputfile({'*.txt'});
-        filename = fullfile(path,file);
-        writecell(input, filename);
-        [~,name,ext] = fileparts(file);
-        app.filename.Text = [name ext];
-        app.file = filename;
-        fid = fopen('latest.txt','wt');
-        fprintf(fid, '%s', filename);
-        fclose(fid);
+        if file == 0
+        else
+            filename = fullfile(path,file);
+            writecell(input, filename);
+            [~,name,ext] = fileparts(file);
+            app.filename.Text = [name ext];
+            app.file = filename;
+            fid = fopen('latest.txt','wt');
+            fprintf(fid, '%s', filename);
+            fclose(fid);
+        end
     else
         writecell(input, app.file);
     end

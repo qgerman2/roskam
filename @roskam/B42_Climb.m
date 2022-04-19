@@ -111,7 +111,5 @@ function B42_Climb(app)
         end
     end
     app.climbtable.Data = app.climboutput(:,:,sel);
-    if ishandle(5)
-        app.B_TWWSPlot();
-    end
+    app.B5_Cruise();
 end

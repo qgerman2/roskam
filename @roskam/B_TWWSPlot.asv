@@ -47,8 +47,7 @@ function B_TWWSPlot(app)
                     [~,~,~,rho] = atmosisa(h / 3.281);
                     rho = rho / 515;
                     x = 178084*cl*sl*rho/(63375*rel);
-                    name = "Landing " + i;
-                    plot([x x], [0 1], "DisplayName", name);
+                    plot([x x], [0 1]);
                 end
             end
         end
@@ -65,25 +64,16 @@ function B_TWWSPlot(app)
                     i + ". OEI CGR$>$0.021";
                 ];
                 if app.climbplotenable2.Value == 1
-                    worst = nan;
-                    worstindex = nan;
+                    worst = 1l
                     for j=1:6
-                         tw = app.climboutput(j,4,i);
-                         if anynan(worst) | tw>worst
-                            worst = tw;
-                            worstindex = j;
-                         end
+
                     end
-                    if ~anynan([worst worstindex])
-                        plot([0, 200], [worst worst], "DisplayName", label(worstindex));
-                    end
-                else
-                    for j=1:6
-                        if app.climboutput(j,5,i) == 1
-                            tw = app.climboutput(j,4,i);
-                            if ~anynan(tw)
-                                plot([0, 200], [tw tw], "DisplayName", label(j));
-                            end
+                end
+                for j=1:6
+                    if app.climboutput(j,5,i) == 1
+                        tw = app.climboutput(j,4,i);
+                        if ~anynan(tw)
+                            plot([0, 200], [tw tw], "DisplayName", label(j));
                         end
                     end
                 end
@@ -102,8 +92,7 @@ function B_TWWSPlot(app)
                     for j=x
                         y(j) = (v1/x(j) + v2*x(j))*k/t;
                     end
-                    name = "Cruise " + i;
-                    plot(x,y,"DisplayName", name);
+                    plot(x,y);
                 end
             end
         end

@@ -23,6 +23,7 @@ function B41_DragPolar(app)
         if anynan(str2double(app.dragswet.Value))
             Swet = exp(log(Wto)*d+log(10)*c);
             app.dragswet.Placeholder = num2str(Swet);
+            app.dragswet.Value = "";
         else
             Swet = str2double(app.dragswet.Value);
         end

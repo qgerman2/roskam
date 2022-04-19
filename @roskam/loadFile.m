@@ -1,6 +1,9 @@
 function loadFile(app, filename)
     if filename == ""
         [file, path] = uigetfile({'*.txt'});
+        if file==0
+            return
+        end
         filename = fullfile(path,file);
     end
     [~,name,ext] = fileparts(filename);
@@ -64,9 +67,11 @@ function loadFile(app, filename)
     for i=1:len
         app.climboutput(:,:,i) = [zeros(6, 4) * nan, [1;1;1;1;1;1]];
     end
-
     app.dragswet.Value = input(36);
+    app.cruisetable.Data = eval(input(37));
+    app.cruisetableSelectionChanged(1);
 
     app.updateUIPlaneType();
     app.A1_FuelFraction();
+    app.B41_DragPolar();
 end
