@@ -72,4 +72,5 @@ function B41_DragPolar(app)
         app.dragv52.Value = num2str(1/(pi*A*lane));
     end
     app.B42_Climb();
+    app.C1_ChordsFlaps();
 end

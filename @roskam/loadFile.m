@@ -71,6 +71,14 @@ function loadFile(app, filename)
     app.cruisetable.Data = eval(input(37));
     app.cruisetableSelectionChanged(1);
 
+    app.wingSweep.Value = eval(input(38));
+    app.wingTaper.Value = eval(input(39));
+    app.wingx1.Value = eval(input(40));
+    app.wingx2.Value = eval(input(41));
+
+    app.liftreqCLmax.Value = eval(input(42));
+    app.liftgradient.Value = eval(input(43));
+
     app.updateUIPlaneType();
     app.A1_FuelFraction();
     app.B41_DragPolar();

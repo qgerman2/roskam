@@ -11,6 +11,13 @@ function saveFile(app, new)
         mat2str(app.climbinput);
         app.dragswet.Value;
         mat2str(app.cruisetable.Data);
+        app.wingSweep.Value;
+        app.wingTaper.Value;
+        app.wingx1.Value;
+        app.wingx2.Value;
+        app.liftreqCLmax.Value;
+        app.liftgradient.Value;
+
     };
     if new || app.file == ""
         [file, path] = uiputfile({'*.txt'});
