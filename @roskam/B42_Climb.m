@@ -112,4 +112,5 @@ function B42_Climb(app)
     end
     app.climbtable.Data = app.climboutput(:,:,sel);
     app.B5_Cruise();
+    app.C1_ChordsFlaps();
 end

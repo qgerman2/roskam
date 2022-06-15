@@ -23,9 +23,6 @@ function C1_ChordsFlaps(app)
         app.wingCtip.Value = root * taper;
     end
     %% Dibujar
-    app.C_WingPlot();
+    app.C_WingPlot(); %Contiene un calculo ademas del plot asi que debe ser ejecutado
     app.C2_LiftRequired();
-    if ishandle(6)
-        app.C_LiftAvailablePlot()
-    end
 end

@@ -25,4 +25,7 @@ function C2_LiftRequired(app)
     
     app.liftreqDeltaCl0TO.Value = app.liftreqDeltaClmaxTO.Value / app.liftK.Value;
     app.liftreqDeltaCl0L.Value = app.liftreqDeltaClmaxL.Value / app.liftK.Value;
+    if ishandle(6)
+        app.C_LiftAvailablePlot()
+    end
 end
