@@ -34,6 +34,7 @@ function C_EmpennagePlot(app)
     % Cuerdas
     empHorCRoot = 2 * empHorArea/((1 + empHorTaper) * empHorSpan);
     empHorCTip = empHorCRoot * empHorTaper;
+    empHorCmac = 2 * empHorCRoot / 3 * (1 + empHorTaper + empHorTaper^2) / (1 + empHorTaper);
     % Posición de centro aerodinámico
     empHorXPosmac = 1 / 6 * (1 + 2 * empHorTaper) / (1 + empHorTaper) * empHorSpan;
     empHorYPos14mac = empHorCRoot/4 + empHorXPosmac * tan(empHorSweep);
@@ -49,6 +50,7 @@ function C_EmpennagePlot(app)
     % Cuerdas
     empVerCRoot = 2 * empVerArea/((1 + empVerTaper) * empVerSpan);
     empVerCTip = empVerCRoot * empVerTaper;
+    empVerCmac = 2 * empVerCRoot / 3 * (1 + empVerTaper + empVerTaper^2) / (1 + empVerTaper);
     % Posición de centro aerodinámico
     empVerXPosmac = 1 / 6 * (1 + 2 * empVerTaper) / (1 + empVerTaper) * empVerSpan;
     empVerYPos14mac = empVerCRoot/4 + empVerXPosmac * tan(empVerSweep);
@@ -71,8 +73,13 @@ function C_EmpennagePlot(app)
         [-empHorYPosTip, 0, -empHorYPosTip, -empHorYPosTip-empHorCTip, -empHorCRoot, -empHorYPosTip-empHorCTip]);
     plot(empHorShape, "FaceColor", 'b');
     plot(wingShape, "FaceColor", 'r');
+    
+    plot([wingXPosmac, wingXPosmac], [-empHorYPos14mac + I_HT + 1/4 * wingCmac, -empHorYPos14mac + I_HT - 3/4 * wingCmac]);
+    plot([empHorXPosmac, empHorXPosmac], [-empHorYPos14mac + 1/4 * empHorCmac, -empHorYPos14mac - 3/4 * empHorCmac]);
+
     plot(wingXPosmac, -empHorYPos14mac + I_HT, 'x');
-    plot(empHorXPosmac, -empHorYPos14mac, 'x')
+    plot(empHorXPosmac, -empHorYPos14mac, 'x');
+
     
     figure(8)
     clf(8);
@@ -90,5 +97,7 @@ function C_EmpennagePlot(app)
     plot([-wingYPos14mac + empHorYPos14mac - I_HT, -wingYPos14mac + empHorYPos14mac - I_HT + wingYPosTip + wingCTip], [-H_HT, -H_HT], "Color", 'r');
     plot(empHorYPos14mac - I_HT, -H_HT, 'x');
     plot(empVerShape, "FaceColor", 'm');
-    plot(empHorYPos14mac - I_HT + I_VT, -H_HT+ H_VT, 'x')
+    
+    plot([empHorYPos14mac - I_HT + I_VT - 1/4*empVerCmac, empHorYPos14mac - I_HT + I_VT + 3/4 * empVerCmac], [-H_HT + H_VT, -H_HT + H_VT]);
+    plot(empHorYPos14mac - I_HT + I_VT, -H_HT + H_VT, 'x');
 end
