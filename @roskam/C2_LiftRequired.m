@@ -18,8 +18,8 @@ function C2_LiftRequired(app)
     app.liftreqDeltaCLmaxTO.Value = (app.liftreqCLmaxTO.Value - app.liftreqCLmax.Value) * 1.05;
     app.liftreqDeltaCLmaxL.Value = (app.liftreqCLmaxL.Value - app.liftreqCLmax.Value) * 1.05;
 
-    app.liftreqDeltaClmaxTO.Value = app.liftreqDeltaCLmaxTO.Value * (app.wingS.Value/app.wingSwf.Value) / app.liftKsweep.Value;
-    app.liftreqDeltaClmaxL.Value = app.liftreqDeltaCLmaxL.Value * (app.wingS.Value/app.wingSwf.Value) / app.liftKsweep.Value;
+    app.liftreqDeltaClmaxTO.Value = app.liftreqDeltaCLmaxTO.Value * (app.wingS.Value/app.wingSwf.Value) * app.liftKsweep.Value;
+    app.liftreqDeltaClmaxL.Value = app.liftreqDeltaCLmaxL.Value * (app.wingS.Value/app.wingSwf.Value) * app.liftKsweep.Value;
 
     app.liftK.Value = ppval(K_SingleSlotted, str2double(app.cfcDropDown.Value));
     
@@ -28,4 +28,5 @@ function C2_LiftRequired(app)
     if ishandle(6)
         app.C_LiftAvailablePlot()
     end
+    app.C3_Empennage();
 end

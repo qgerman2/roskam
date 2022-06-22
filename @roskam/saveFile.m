@@ -17,7 +17,11 @@ function saveFile(app, new)
         app.wingx2.Value;
         app.liftreqCLmax.Value;
         app.liftgradient.Value;
-
+        app.empHorA.Value; app.empVerA.Value;
+        app.empHorTaper.Value; app.empVerTaper.Value;
+        app.empHorSweep.Value; app.empVerSweep.Value;
+        app.empHorIHT.Value; app.empHorHHT.Value;
+        app.empVerIVT.Value; app.empVerHVT.Value
     };
     if new || app.file == ""
         [file, path] = uiputfile({'*.txt'});

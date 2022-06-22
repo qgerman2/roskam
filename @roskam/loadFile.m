@@ -79,6 +79,17 @@ function loadFile(app, filename)
     app.liftreqCLmax.Value = eval(input(42));
     app.liftgradient.Value = eval(input(43));
 
+    app.empHorA.Value = eval(input(44));
+    app.empVerA.Value = eval(input(45));
+    app.empHorTaper.Value = eval(input(46));
+    app.empVerTaper.Value = eval(input(47));
+    app.empHorSweep.Value = eval(input(48));
+    app.empVerSweep.Value = eval(input(49));
+    app.empHorIHT.Value = eval(input(50));
+    app.empHorHHT.Value = eval(input(51));
+    app.empVerIVT.Value = eval(input(52));
+    app.empVerHVT.Value = eval(input(53));
+
     app.updateUIPlaneType();
     app.A1_FuelFraction();
     app.B41_DragPolar();
