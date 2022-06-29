@@ -90,7 +90,19 @@ function loadFile(app, filename)
     app.empVerIVT.Value = eval(input(52));
     app.empVerHVT.Value = eval(input(53));
 
+    app.catvalues = eval(input(54));
+    app.catstart = eval(input(55));
+    app.catnames = eval(eval(input(56)));
+    app.compnames = eval(eval(input(57)));
+    app.exlist = eval(eval(input(58)));
+
+    app.refx0.Value = eval(input(59));
+    app.refx1.Value = eval(input(60));
+    app.refy0.Value = eval(input(61));
+    
+
     app.updateUIPlaneType();
     app.A1_FuelFraction();
     app.B41_DragPolar();
+    app.D2_Categories();
 end

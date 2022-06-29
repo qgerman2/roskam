@@ -21,7 +21,11 @@ function saveFile(app, new)
         app.empHorTaper.Value; app.empVerTaper.Value;
         app.empHorSweep.Value; app.empVerSweep.Value;
         app.empHorIHT.Value; app.empHorHHT.Value;
-        app.empVerIVT.Value; app.empVerHVT.Value
+        app.empVerIVT.Value; app.empVerHVT.Value;
+        mat2str(app.catvalues); mat2str(app.catstart);
+        mat2str(app.catnames); mat2str(app.compnames);
+        mat2str(app.exlist);
+        app.refx0.Value; app.refx1.Value; app.refy0.Value
     };
     if new || app.file == ""
         [file, path] = uiputfile({'*.txt'});
