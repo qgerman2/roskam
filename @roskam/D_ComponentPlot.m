@@ -6,6 +6,8 @@ function D_ComponentPlot(app)
     yline(0, 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
     xline(0, 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
     xline(1, 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
+    xline(app.refcmac0.Value, "Color", [.3 .3 .3], 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
+    xline(app.refcmac1.Value, "Color", [.3 .3 .3], 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
 
     img = imread("avion.png");
     imgw = size(img, 2);

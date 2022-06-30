@@ -26,8 +26,12 @@ function D_ExcursionPlot(app)
     end
     plot(points(:,1), points(:, 2), "k", 'HandleVisibility', 'off');
     legend();
-    xlim([0, 1]);
-    ylim([0, str2double(app.W_to.Value)])
+    xlim([app.refcmac0.Value - 0.1, app.refcmac1.Value + 0.1]);
+    y0 = str2double(app.WE.Value);
+    y1 = str2double(app.W_to.Value);
+    ylim([y0 - (y1-y0)*0.1, y1 + (y1-y0)*0.1])
+    xline(app.refcmac0.Value, "Color", [.2 .2 .2], 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
+    xline(app.refcmac1.Value, "Color", [.2 .2 .2], 'HandleVisibility', 'off', 'HitTest','off','PickableParts','none');
 
     for catss = 1:length(app.catnames)
         plot(nan, nan, 'w', 'DisplayName', strcat(num2str(catss), " ", app.catnames(catss)));

@@ -32,11 +32,6 @@ function init(app)
         [nan, nan, nan, nan, 1];
     ];
     app.updateUIPlaneType();
-    %Cargar dimensiones de imagen para cg
-    img = imread("avion.png");
-    app.refx0.Value = 0;
-    app.refx1.Value = size(img, 2);
-    app.refy0.Value = size(img, 1) / 2;
     %Cargar ultimo archivo
     fid = fopen('latest.txt','rt');
     if fid ~= -1

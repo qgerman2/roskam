@@ -99,6 +99,8 @@ function loadFile(app, filename)
     app.refx0.Value = eval(input(59));
     app.refx1.Value = eval(input(60));
     app.refy0.Value = eval(input(61));
+    app.refcmac0.Value = eval(input(62));
+    app.refcmac1.Value = eval(input(63));
     
 
     app.updateUIPlaneType();

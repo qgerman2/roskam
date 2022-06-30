@@ -16,6 +16,8 @@ function D_AxesPlot(app)
     xline(0)
     xline(1)
     daspect([1 1 1])
-    xlim([-0.2, 1.2]);
-    ylim([-0.5, 0.5]);
+    xlim([0-x0of-0.05, 1+x1of+0.05]);
+    ylim([-h/2+yof-0.05, h/2+yof+0.05]);
+    xline(app.refcmac0.Value);
+    xline(app.refcmac1.Value);
 end
