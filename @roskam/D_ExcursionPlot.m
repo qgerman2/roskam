@@ -25,7 +25,7 @@ function D_ExcursionPlot(app)
         plot(x, wtotal, "o", 'DisplayName', app.exlist(s));
     end
     plot(points(:,1), points(:, 2), "k", 'HandleVisibility', 'off');
-    legend();
+    legend('FontName','times')
     xlim([app.refcmac0.Value - 0.1, app.refcmac1.Value + 0.1]);
     y0 = str2double(app.WE.Value);
     y1 = str2double(app.W_to.Value);
@@ -36,4 +36,6 @@ function D_ExcursionPlot(app)
     for catss = 1:length(app.catnames)
         plot(nan, nan, 'w', 'DisplayName', strcat(num2str(catss), " ", app.catnames(catss)));
     end
+    
+    ylabel("Weight - lb",'Interpreter','latex')
 end
